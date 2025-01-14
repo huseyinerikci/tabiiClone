@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #252525;
+  color: #e6e6e6;
+  min-height: 100vh;
+}
+
+@layer components {
+  .hero-btn {
+    @apply py-2 px-4 bg-red-600 rounded transition hover:bg-red-700 min-w-[165px] flex items-center justify-center gap-2;
+  }
+}
+/* Add numbers to pagination buttons by CSS */
+.splide__pagination {
+  counter-reset: pagination-num;
+}
+
+.splide__pagination__page:before {
+  counter-increment: pagination-num;
+  content: counter(pagination-num);
+}
+
+/* From Uiverse.io by Shoh2008 */
+.loader {
+  position: relative;
+  border: 24px solid;
+  border-color: #00ff99 transparent #00ff99 transparent;
+  animation: rotate_000 2s linear infinite;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  display: block;
+  border: 24px solid transparent;
+  border-left-color: #00ff99;
+  position: absolute;
+  left: -24px;
+  top: -24px;
+  animation: prix 1s infinite ease-in;
+  transform-origin: 0% 100%;
+}
+
+.loader:before {
+  border-color: transparent #00ff99 transparent transparent;
+  transform-origin: 100% 0%;
+  animation-delay: 0.5s;
+}
+
+@keyframes rotate_000 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prix {
+  20%,
+  80% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(-90deg);
+  }
+}
